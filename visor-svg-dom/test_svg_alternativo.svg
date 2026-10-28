@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="300">
+  <rect x="0" y="0" width="500" height="300" fill="#f1e8fa"/>
+  <circle cx="250" cy="150" r="100" fill="#d5b4f4" stroke="purple" stroke-width="6"/>
+  <text x="95" y="157" font-family="Arial" font-size="24" fill="black">Segundo archivo SVG</text>
+</svg>

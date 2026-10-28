@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="610">
+  <!-- Todos los estilos estan declarados en cada elemento, sin CSS. -->
+  <rect x="0" y="0" width="900" height="610" fill="#f4f7fb"/>
+  <rect x="0" y="0" width="900" height="94" fill="#182b49"/>
+  <text x="32" y="45" font-family="Arial" font-size="30" fill="white">Visor SVG con Java DOM</text>
+  <text x="34" y="76" font-family="Arial" font-size="15" fill="#b6d3fa">Seis figuras SVG - Java Swing y Java 2D</text>
+
+  <!-- Las figuras dentro de g comprueban la navegacion DOM recursiva. -->
+  <g>
+    <rect x="28" y="120" width="260" height="450" fill="white" stroke="#c4cedc" stroke-width="2"/>
+    <rect x="320" y="120" width="260" height="450" fill="white" stroke="#c4cedc" stroke-width="2"/>
+    <rect x="612" y="120" width="260" height="450" fill="white" stroke="#c4cedc" stroke-width="2"/>
+  </g>
+
+  <text x="52" y="160" font-family="Arial" font-size="19" fill="#172e50">line / circle</text>
+  <line x1="54" y1="202" x2="255" y2="240" stroke="red" stroke-width="5"/>
+  <line x1="54" y1="260" x2="252" y2="207" stroke="#3275da" stroke-width="3"/>
+  <circle cx="110" cy="365" r="53" fill="yellow" stroke="black" stroke-width="3"/>
+  <circle cx="218" cy="420" r="38" fill="orange" stroke="#a34215" stroke-width="5"/>
+  <text x="51" y="534" font-family="Arial" font-size="15" fill="#54647d">2 lines + 2 circles</text>
+
+  <text x="342" y="160" font-family="Arial" font-size="19" fill="#172e50">polyline / rect</text>
+  <polyline points="348,251 395,192 438,236 484,189 549,251" fill="none"
+            stroke="blue" stroke-width="5"/>
+  <polyline points="351,330 389,281 445,323 486,292 548,334" fill="#b5d7f2"
+            stroke="#08737c" stroke-width="3"/>
+  <rect x="355" y="384" width="185" height="63" fill="lightblue" stroke="navy" stroke-width="4"/>
+  <rect x="402" y="460" width="128" height="42" fill="#c5e4d4" stroke="green" stroke-width="2"/>
+  <text x="343" y="534" font-family="Arial" font-size="15" fill="#54647d">2 polylines + 2 rects</text>
+
+  <text x="632" y="160" font-family="Arial" font-size="19" fill="#172e50">ellipse / text</text>
+  <g>
+    <ellipse cx="741" cy="265" rx="100" ry="48" fill="lightgreen" stroke="green" stroke-width="3"/>
+    <ellipse cx="742" cy="403" rx="76" ry="97" fill="none" stroke="purple" stroke-width="5"/>
+  </g>
+  <text x="660" y="533" font-family="Arial" font-size="15" fill="#54647d">2 ellipses + textos</text>
+</svg>

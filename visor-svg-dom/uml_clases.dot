@@ -1,0 +1,36 @@
+digraph UML {
+  graph [rankdir=TB, bgcolor="white", pad=0.3, nodesep=0.42, ranksep=0.63];
+  node [shape=record, fontname="Helvetica", fontsize=11, color="#41526d", style="filled", fillcolor="#f3f7ff"];
+  edge [color="#41526d", arrowsize=0.75, fontname="Helvetica", fontsize=9];
+
+  FiguraSVG [label="{«abstracta» FiguraSVG|# estilo: EstiloSVG|+ dibujar(Graphics2D): void\l# pintarForma(Graphics2D, Shape): void\l}", fillcolor="#dceaff"];
+  LineaSVG [label="{LineaSVG|x1, y1, x2, y2: double|+ dibujar(Graphics2D): void}"];
+  CirculoSVG [label="{CirculoSVG|cx, cy, radio: double|+ dibujar(Graphics2D): void}"];
+  PolilineaSVG [label="{PolilineaSVG|puntos: List\<Point2D.Double\>|+ dibujar(Graphics2D): void}"];
+  RectanguloSVG [label="{RectanguloSVG|x, y, ancho, alto: double|+ dibujar(Graphics2D): void}"];
+  ElipseSVG [label="{ElipseSVG|cx, cy, rx, ry: double|+ dibujar(Graphics2D): void}"];
+  TextoSVG [label="{TextoSVG|x, y: double; contenido: String|+ dibujar(Graphics2D): void}"];
+  EstiloSVG [label="{EstiloSVG|relleno, contorno: Color\lgrosorContorno, tamanoFuente: double\lfamiliaFuente: String\l|+ getters()}"];
+  DocumentoSVG [label="{DocumentoSVG|ancho, alto: double\lfiguras: List\<FiguraSVG\>|+ getFiguras(): List}"];
+  ProcesadorSVG [label="{ProcesadorSVG|+ cargar(File): DocumentoSVG\l- recorrerHijos(Element, List): void\l- construirFigura(String, Element): FiguraSVG\l}", fillcolor="#dbf3e8"];
+  AtributosSVG [label="{AtributosSVG|+ numero(Element, String, double): double\l+ estilo(Element): EstiloSVG\l+ color(Element, String, Color): Color\l+ puntos(Element): List\l}"];
+  PanelDibujo [label="{PanelDibujo : JPanel|figuras: List\<FiguraSVG\>|+ mostrar(DocumentoSVG): void\l+ paintComponent(Graphics): void\l}"];
+  VentanaSVG [label="{VentanaSVG : JFrame|procesador: ProcesadorSVG\lpanelDibujo: PanelDibujo\l|+ abrirArchivo(File): void\l}", fillcolor="#fff1d3"];
+  Main [label="{Main|+ main(String[]): void}"];
+
+  LineaSVG -> FiguraSVG [arrowhead=empty];
+  CirculoSVG -> FiguraSVG [arrowhead=empty];
+  PolilineaSVG -> FiguraSVG [arrowhead=empty];
+  RectanguloSVG -> FiguraSVG [arrowhead=empty];
+  ElipseSVG -> FiguraSVG [arrowhead=empty];
+  TextoSVG -> FiguraSVG [arrowhead=empty];
+  FiguraSVG -> EstiloSVG [label="1", arrowhead=diamond, dir=back];
+  DocumentoSVG -> FiguraSVG [label="0..*", arrowhead=diamond, dir=back];
+  ProcesadorSVG -> DocumentoSVG [style=dashed, label="crea"];
+  ProcesadorSVG -> AtributosSVG [style=dashed, label="usa"];
+  PanelDibujo -> DocumentoSVG [style=dashed, label="recibe"];
+  VentanaSVG -> PanelDibujo [label="contiene"];
+  VentanaSVG -> ProcesadorSVG [label="utiliza"];
+  Main -> VentanaSVG [style=dashed, label="inicia"];
+  {rank=same; LineaSVG; CirculoSVG; PolilineaSVG; RectanguloSVG; ElipseSVG; TextoSVG}
+}
